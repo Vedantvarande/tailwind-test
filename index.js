@@ -93,17 +93,24 @@ let displayUserMessage = document.getElementById('displayM');
 
     const querySnapshot = await getDocs(collection(db, "clients"));
     querySnapshot.forEach((doc) => {
+      
+      let disName = document.getElementById('disName')
+    let disEmail = document.getElementById('disEmail')
+    let disMessage = document.getElementById('disMessage')
     
-    
-    
-    let dis = document.getElementById('dis')
-    dis.innerHTML=`
-      <h1>${doc.data().Email}</h1>
+    disName.innerHTML = `
+      ${doc.data().Name}
+    `
+    disEmail.innerHTML = `
+      ${doc.data().Email}
+    `
+    disMessage.innerHTML = `
+      ${doc.data().Message}
     `
     
-    displayUserName.value = doc.data().Name;
-    displayUserEmail.value = doc.data().Email;
-    displayUserMessage.value = doc.data().Message;
+//     displayUserName.value = doc.data().Name;
+//     displayUserEmail.value = doc.data().Email;
+//     displayUserMessage.value = doc.data().Message;
 
     // console.log(doc.id, " => ", doc.data());
 });
